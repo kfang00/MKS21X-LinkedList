@@ -12,7 +12,7 @@ public class MyLinkedList{
     }
 
     public Node next() {
-    
+    	return next;
     }
 
     public Node prev() {
