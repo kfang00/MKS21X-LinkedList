@@ -32,7 +32,7 @@ public class MyLinkedList{
     }
 
     public Integer setData(Integer i) {
-
+	data = i;
     }
 
     public String toString() {
