@@ -2,15 +2,42 @@ import java.util.List;
 
 public class MyLinkedList{
   private class Node{
-    private Integer data;S
+    private Integer data;
     private Node next,prev;
-    Node next()
-    Node prev()
-    void setNext(Node other)
-    void setPrev(Node other)
-    Integer getData()
-    Integer setData(Integer i)
-    String toString()
+    
+    public Node() {
+	data = new Integer();        
+	next = new Node();
+	prev = new Node();
+    }
+
+    public Node next() {
+    
+    }
+
+    public Node prev() {
+
+    }
+
+    public void setNext(Node other) {
+
+    }
+
+    public void setPrev(Node other) {
+
+    }
+
+    public Integer getData() {
+
+    }
+
+    public Integer setData(Integer i) {
+
+    }
+
+    public String toString() {
+
+    }
   }
 
   private int length;
