@@ -20,7 +20,7 @@ public class MyLinkedList{
     }
 
     public void setNext(Node other) {
-
+	next = other;
     }
 
     public void setPrev(Node other) {
