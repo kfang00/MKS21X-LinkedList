@@ -36,7 +36,8 @@ public class MyLinkedList{
     }
 
     public String toString() {
-
+	String str = "";
+	for (int a = 0; 
     }
   }
 
@@ -59,14 +60,31 @@ public class MyLinkedList{
 
   }
 
-  
-  Integer get(int index)  
-  Integer set(int index,Integer value)
+  public Integer get(int index) {
 
-  boolean contains(Integer value)
-  int indexOf(Integer value)
+  }
 
-  void add(int index,Integer value) 
-  Integer remove(int index) 
-  boolean remove(Integer value) //indexOf() would also be useful
+  public Integer set(int index,Integer value) {
+
+  }
+
+  public boolean contains(Integer value) {
+
+  }
+
+  public int indexOf(Integer value) {
+
+  }
+
+  public void add(int index,Integer value) {
+
+  }
+
+  public Integer remove(int index) {
+
+  }
+
+  public boolean remove(Integer value) {//indexOf() would also be useful
+
+  } 
 }
