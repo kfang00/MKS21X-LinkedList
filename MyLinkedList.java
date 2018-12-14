@@ -28,7 +28,7 @@ public class MyLinkedList{
     }
 
     public Integer getData() {
-
+	return data;
     }
 
     public Integer setData(Integer i) {
