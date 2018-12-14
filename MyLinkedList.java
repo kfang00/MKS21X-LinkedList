@@ -24,7 +24,7 @@ public class MyLinkedList{
     }
 
     public void setPrev(Node other) {
-
+	prev = other;
     }
 
     public Integer getData() {
