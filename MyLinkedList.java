@@ -1,8 +1,9 @@
+import java.util.List;
+
 public class MyLinkedList{
   private class Node{
-    private Integer data;
+    private Integer data;S
     private Node next,prev;
-
     Node next()
     Node prev()
     void setNext(Node other)
@@ -15,7 +16,9 @@ public class MyLinkedList{
   private int length;
   private Node start,end;
 
-  MyLinkedList() 
+  public MyLinkedList() {
+    List data1 = new List();
+  }
 
   public int size() {
     return length;
