@@ -46,6 +46,8 @@ public class MyLinkedList{
 
   public MyLinkedList() {
     List data1 = new List();
+    start = new Node();
+    end = new Node();
   }
 
   public int size() {
