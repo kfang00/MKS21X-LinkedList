@@ -33,6 +33,7 @@ public class MyLinkedList{
 
     public Integer setData(Integer i) {
 	data = i;
+	return data;
     }
 
     public String toString() {
@@ -98,7 +99,7 @@ public class MyLinkedList{
   }
 
   public Integer set(int index,Integer value) {
-    return 0;
+    return nthNode(index).setData(value);
   }
 
   public boolean contains(Integer value) {
