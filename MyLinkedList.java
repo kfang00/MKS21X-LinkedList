@@ -173,24 +173,28 @@ public class MyLinkedList{
   }
 
   public Integer remove(int index) {
-    Integer hold = nthNode(index).getData();
     if (index < 0 || index >= size()) {
       throw new IndexOutOfBoundsException(); //if the index is out of range
     }
     else {
+      Integer hold = nthNode(index).getData();
       if (size() == 1) { //if only one element
         start = new Node(null, null, null);
       }
-      if (index == (size() - 1)) {//if you want to remove the last element
+      else if (index == (size() - 1)) {//if you want to remove the last element
         end = end.prev();
+      }
+      else if (index == 0) {
+        start = nthNode(index + 1);
       }
       else {
         nthNode(index + 1).setPrev(nthNode(index - 1));
         nthNode(index - 1).setNext(nthNode(index + 1)); //Removes the element at the specified position in this list
       }
       length = length - 1;
+      return hold;
     }
-    return hold;
+    
   }
 
   public boolean remove(Integer value) {//indexOf() would also be useful
