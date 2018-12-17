@@ -64,6 +64,7 @@ public class MyLinkedList{
       end.setNext(add); //what exceptions?
       end = add; //the added node would be the new end
     }
+    length = length + 1;
     return true;
   }
 
