@@ -125,7 +125,18 @@ public class MyLinkedList{
   }
 
   public int indexOf(Integer value) {
-    return 0;
+    Node current = new Node(); 
+    current = start;
+    if (current.getData().equals(value)) {
+      return 0;
+    }
+    for (int a = 0; a < (size() - 1); a++) {
+      current = current.next();
+      if (current.getData().equals(value)) {
+        return (a + 1); 
+      }
+    }
+    return -1;
   }
 
   public void add(int index,Integer value) {
