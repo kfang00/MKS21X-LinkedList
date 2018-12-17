@@ -76,12 +76,13 @@ public class MyLinkedList{
     return str;
   }
 
-  private void nthNode() {
-    //Node current = first_node;
-    //while (current != null) {
-      //System.out.println(current.value());
-      //current = current.next();
+  private Node nthNode(int index) {
+    Node current = new Node();
+    current = start;
+    for (int a = 0; a < index; a++) {
+      current = current.next();
     }
+    return current;
   }
 
   public Integer get(int index) {
