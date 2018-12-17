@@ -7,8 +7,6 @@ public class MyLinkedList{
     
     public Node() {   
 	data = 0;    
-	next = new Node();
-	prev = new Node();
     }
 
     public Node next() {
@@ -72,12 +70,15 @@ public class MyLinkedList{
   public String toString() {
     Node current = new Node(); 
     current = start;
-    String str = "" + current.getData();
+    String str = "[" + current.getData();
     for (int a = 0; a < (size() - 1); a++) {
       current = current.next();
       str = str + current.getData();
     }
-    return str;
+    if (size() == 0) {
+      return "[]";
+    }
+    return str + "]";
   }
 
   private Node nthNode(int index) {
