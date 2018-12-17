@@ -152,14 +152,15 @@ public class MyLinkedList{
         start = add;
       }
       else {
-        nthNode(index - 1).setNext(add); //Inserts the specified element at the specified position in this list
         nthNode(index).setPrev(add);
+        nthNode(index - 1).setNext(add); //Inserts the specified element at the specified position in this list
       }
       length = length + 1;
     }
   }
 
   public Integer remove(int index) {
+    Integer hold = nthNode(index).getData();
     if (index < 0 || index >= size()) {
       throw new IndexOutOfBoundsException(); //if the index is out of range
     }
@@ -171,14 +172,22 @@ public class MyLinkedList{
         end = end.prev();
       }
       else {
-        nthNode(index - 1).setNext(nthNode(index + 1));
-        nthNode(index + 1).setPrev(nthNode(index - 1)); //Removes the element at the specified position in this list
+        nthNode(index + 1).setPrev(nthNode(index - 1));
+        nthNode(index - 1).setNext(nthNode(index + 1)); //Removes the element at the specified position in this list
       }
       length = length - 1;
     }
+    return hold;
   }
 
   public boolean remove(Integer value) {//indexOf() would also be useful
-    return true;
+    int idx = 0;
+    if (indexOf(value) == -1) {
+      return false;
+    }
+    else {
+      idx = indexOf(value);
+      return remove(idx);
+    }
   } 
 }
