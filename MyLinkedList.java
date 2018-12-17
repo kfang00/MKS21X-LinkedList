@@ -62,7 +62,7 @@ public class MyLinkedList{
     else { //otherwise one must create a new node and set the end reference to it (essentially adding it on)
       Node add = new Node();
       add.setData(value);
-      end.setNext(add); //what exceptions?
+      end.setNext(add); 
       end = add; //the added node would be the new end
     }
     length = length + 1;
@@ -110,7 +110,18 @@ public class MyLinkedList{
   }
 
   public boolean contains(Integer value) {
-    return true;
+    Node current = new Node(); 
+    current = start;
+    if (current.getData().equals(value)) {
+      return true;
+    }
+    for (int a = 0; a < (size() - 1); a++) {
+      current = current.next();
+      if (current.getData().equals(value)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public int indexOf(Integer value) {
