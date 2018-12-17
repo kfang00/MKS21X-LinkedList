@@ -118,7 +118,7 @@ public class MyLinkedList{
     for (int a = 0; a < (size() - 1); a++) {
       current = current.next();
       if (current.getData().equals(value)) {
-        return true;
+        return true; //Returns true if this list contains the specified element
       }
     }
     return false;
