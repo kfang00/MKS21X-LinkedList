@@ -160,15 +160,19 @@ public class MyLinkedList{
   }
 
   public Integer remove(int index) {
-      if (size() == 1) {
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException(); //if the index is out of range
+    }
+    else {
+      if (size() == 1) { //if only one element
         start = new Node();
       }
-      if (index == (size() - 1)) {
+      if (index == (size() - 1)) {//if you want to remove the last element
         end = end.prev();
       }
       else {
         nthNode(index - 1).setNext(nthNode(index + 1));
-        nthNode(index + 1).setPrev(nthNode(index - 1));
+        nthNode(index + 1).setPrev(nthNode(index - 1)); //Removes the element at the specified position in this list
       }
       length = length - 1;
     }
