@@ -133,10 +133,10 @@ public class MyLinkedList{
     for (int a = 0; a < (size() - 1); a++) {
       current = current.next();
       if (current.getData().equals(value)) {
-        return (a + 1); 
+        return (a + 1); // Returns the index of the first occurrence of the specified element in this list
       }
     }
-    return -1;
+    return -1; //returns -1 if this list does not contain the element
   }
 
   public void add(int index,Integer value) {
