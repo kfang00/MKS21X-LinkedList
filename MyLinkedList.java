@@ -42,13 +42,11 @@ public class MyLinkedList{
 
   private int length;
   private Node start,end;
-  private String str;
 
   public MyLinkedList() {
     length = 0;
     start = new Node();
     end = new Node();
-    str = "";
   }
 
   public int size() {
@@ -59,20 +57,25 @@ public class MyLinkedList{
     if (length == 0) {
       start.setData(value); //if list is empty, then adding a node would mean start and end node would be equal to value
       end.setData(value);
-      str = "" + value;
     }
     else { //otherwise one must create a new node and set the end reference to it (essentially adding it on)
       Node add = new Node();
       add.setData(value);
       end.setNext(add); //what exceptions?
       end = add; //the added node would be the new end
-      str = str + value;
     }
     length = length + 1;
     return true;
   }
 
   public String toString() {
+    Node current = new Node(); 
+    current = start;
+    String str = "" + current.getData();
+    for (int a = 0; a < (size() - 1); a++) {
+      current = current.next();
+      str = str + current.getData();
+    }
     return str;
   }
 
