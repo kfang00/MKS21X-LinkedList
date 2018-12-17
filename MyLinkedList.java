@@ -77,10 +77,10 @@ public class MyLinkedList{
   }
 
   private Node nthNode(int index) {
-    Node current = new Node();
+    Node current = new Node(); 
     current = start;
     for (int a = 0; a < index; a++) {
-      current = current.next();
+      current = current.next(); //get the next node until you have reached the node of the specified index
     }
     return current;
   }
