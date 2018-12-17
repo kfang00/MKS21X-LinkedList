@@ -89,7 +89,7 @@ public class MyLinkedList{
   }
 
   public Integer get(int index) {
-    return 0;
+    return nthNode(index).getData();
   }
 
   public Integer set(int index,Integer value) {
