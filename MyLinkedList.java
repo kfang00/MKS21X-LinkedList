@@ -142,16 +142,21 @@ public class MyLinkedList{
   public void add(int index,Integer value) {
     Node add = new Node();
     add.setData(value);
-    if (index == 0) {
-      start.setPrev(add);
-      add.setNext(start);
-      start = add;
+    if (index < 0 || index > size()) {
+      throw new IndexOutOfBoundsException(); //if the index is out of range
     }
     else {
-      nthNode(index - 1).setNext(add);
-      nthNode(index).setPrev(add);
+      if (index == 0) {
+        start.setPrev(add);
+        add.setNext(start);
+        start = add;
+      }
+      else {
+        nthNode(index - 1).setNext(add); //Inserts the specified element at the specified position in this list
+        nthNode(index).setPrev(add);
+      }
+      length = length + 1;
     }
-    length = length + 1;
   }
 
   public Integer remove(int index) {
