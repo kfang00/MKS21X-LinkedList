@@ -160,7 +160,18 @@ public class MyLinkedList{
   }
 
   public Integer remove(int index) {
-    return 0;
+      if (size() == 1) {
+        start = new Node();
+      }
+      if (index == (size() - 1)) {
+        end = end.prev();
+      }
+      else {
+        nthNode(index - 1).setNext(nthNode(index + 1));
+        nthNode(index + 1).setPrev(nthNode(index - 1));
+      }
+      length = length - 1;
+    }
   }
 
   public boolean remove(Integer value) {//indexOf() would also be useful
