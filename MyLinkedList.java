@@ -183,11 +183,12 @@ public class MyLinkedList{
   public boolean remove(Integer value) {//indexOf() would also be useful
     int idx = 0;
     if (indexOf(value) == -1) {
-      return false;
+      return false; //If this list does not contain the element, the list is unchanged
     }
     else {
-      idx = indexOf(value);
-      return remove(idx);
+      idx = indexOf(value); 
+      remove(idx); //Removes the first occurrence of the specified element from this list, if it is present
+      return true; //true if this list contained the specified element
     }
   } 
 }
