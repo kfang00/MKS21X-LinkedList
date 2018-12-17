@@ -68,17 +68,16 @@ public class MyLinkedList{
   }
 
   public String toString() {
-    Node current = new Node(); 
-    current = start;
+    Node current = start; 
+    if (size() == 0) {
+      return "[]";
+    }
     String str = "[" + current.getData();
     for (int a = 0; a < (size() - 1); a++) {
       current = current.next();
       str = str + current.getData();
     }
-    if (size() == 0) {
-      return "[]";
-    }
-    return str + "]";
+    return str;
   }
 
   private Node nthNode(int index) {
