@@ -5,8 +5,10 @@ public class MyLinkedList{
     private Integer data;
     private Node next,prev;
     
-    public Node() {   
-	data = 0;    
+    public Node(Integer data1, Node next1, Node prev1) {   
+	data1 = data;  
+	next1 = next;
+	prev1 = prev;  
     }
 
     public Node next() {
@@ -44,8 +46,8 @@ public class MyLinkedList{
 
   public MyLinkedList() {
     length = 0;
-    start = new Node();
-    end = new Node();
+    start = new Node(null, null, null);
+    end = new Node(null, null, null);
   }
 
   public int size() {
@@ -57,10 +59,18 @@ public class MyLinkedList{
       start.setData(value); //if list is empty, then adding a node would mean start and end node would be equal to value
       end.setData(value);
     }
+    else if (length == 1) {
+      Node add = new Node(null, null, null);
+      add.setData(value);
+      add.setPrev(start);
+      start.setNext(add);
+      end = add;
+    }
     else { //otherwise one must create a new node and set the end reference to it (essentially adding it on)
-      Node add = new Node();
+      Node add = new Node(null, null, null);
       add.setData(value);
       end.setNext(add); 
+      add.setPrev(end);
       end = add; //the added node would be the new end
     }
     length = length + 1;
@@ -69,19 +79,21 @@ public class MyLinkedList{
 
   public String toString() {
     Node current = start; 
+    int a = 0;
     if (size() == 0) {
       return "[]";
     }
-    String str = "[" + current.getData();
-    for (int a = 0; a < (size() - 1); a++) {
+    String str = "[";
+    while (a < (size() -1)) {
+      str = str + current.getData() + ", ";
       current = current.next();
-      str = str + current.getData();
+      a++;
     }
-    return str;
+    return str + current.getData() +"]";
   }
 
   private Node nthNode(int index) {
-    Node current = new Node(); 
+    Node current = new Node(null, null, null); 
     current = start;
     for (int a = 0; a < index; a++) {
       current = current.next(); //get the next node until you have reached the node of the specified index
@@ -110,7 +122,7 @@ public class MyLinkedList{
   }
 
   public boolean contains(Integer value) {
-    Node current = new Node(); 
+    Node current = new Node(null, null, null); 
     current = start;
     if (current.getData().equals(value)) {
       return true;
@@ -125,7 +137,7 @@ public class MyLinkedList{
   }
 
   public int indexOf(Integer value) {
-    Node current = new Node(); 
+    Node current = new Node(null, null, null); 
     current = start;
     if (current.getData().equals(value)) {
       return 0;
@@ -140,7 +152,7 @@ public class MyLinkedList{
   }
 
   public void add(int index,Integer value) {
-    Node add = new Node();
+    Node add = new Node(null, null, null);
     add.setData(value);
     if (index < 0 || index > size()) {
       throw new IndexOutOfBoundsException(); //if the index is out of range
@@ -153,6 +165,7 @@ public class MyLinkedList{
       }
       else {
         nthNode(index).setPrev(add);
+        add.setNext(nthNode(index));
         nthNode(index - 1).setNext(add); //Inserts the specified element at the specified position in this list
       }
       length = length + 1;
@@ -166,7 +179,7 @@ public class MyLinkedList{
     }
     else {
       if (size() == 1) { //if only one element
-        start = new Node();
+        start = new Node(null, null, null);
       }
       if (index == (size() - 1)) {//if you want to remove the last element
         end = end.prev();
