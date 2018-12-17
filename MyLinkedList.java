@@ -54,11 +54,17 @@ public class MyLinkedList{
   }
 
   public boolean add(Integer value) {
-    Node add = new Node();
-    add.setData(value);
-    end.setNext(add); //what exceptions?
+    if (length == 0) {
+      start.setData(value); //if list is empty, then adding a node would mean start and end node would be equal to value
+      end.setData(value);
+    }
+    else { //otherwise one must create a new node and set the end reference to it (essentially adding it on)
+      Node add = new Node();
+      add.setData(value);
+      end.setNext(add); //what exceptions?
+      end = add; //the added node would be the new end
+    }
     return true;
-    
   }
 
   public String toString() {
