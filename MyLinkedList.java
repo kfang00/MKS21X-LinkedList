@@ -89,7 +89,12 @@ public class MyLinkedList{
   }
 
   public Integer get(int index) {
-    return nthNode(index).getData();
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException(); //if the index is out of range
+    }
+    else {
+      return nthNode(index).getData(); //Returns the element at the specified position in this list
+    }
   }
 
   public Integer set(int index,Integer value) {
