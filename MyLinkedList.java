@@ -140,7 +140,18 @@ public class MyLinkedList{
   }
 
   public void add(int index,Integer value) {
-
+    Node add = new Node();
+    add.setData(value);
+    if (index == 0) {
+      start.setPrev(add);
+      add.setNext(start);
+      start = add;
+    }
+    else {
+      nthNode(index - 1).setNext(add);
+      nthNode(index).setPrev(add);
+    }
+    length = length + 1;
   }
 
   public Integer remove(int index) {
