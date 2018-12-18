@@ -161,7 +161,10 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException(); //if the index is out of range
     }
     else {
-      if (index == 0) {
+      if (index == size()) {
+	add(value);
+      }
+      else if (index == 0) {
         start.setPrev(add);
         add.setNext(start);
         start = add;
@@ -178,23 +181,27 @@ public class MyLinkedList{
   }
 
   public Integer remove(int index) {
+    Node store = new Node(null, null, null);
     if (index < 0 || index >= size()) {
       throw new IndexOutOfBoundsException(); //if the index is out of range
     }
     else {
-      Integer hold = nthNode(index).getData();
+      store = nthNode(index);
+      Integer hold = store.getData();
       if (size() == 1) { //if only one element
         start = new Node(null, null, null);
       }
       else if (index == (size() - 1)) {//if you want to remove the last element
+	end.prev().setNext(null);
         end = end.prev();
       }
       else if (index == 0) {
-        start = nthNode(index + 1);
+        start = start.next();
+	start.setPrev(null);
       }
       else {
-        nthNode(index + 1).setPrev(nthNode(index - 1));
-        nthNode(index - 1).setNext(nthNode(index + 1)); //Removes the element at the specified position in this list
+        store.next().setPrev(store.prev());
+        store.prev().setNext(store.next()); //Removes the element at the specified position in this list
       }
       length = length - 1;
       return hold;
