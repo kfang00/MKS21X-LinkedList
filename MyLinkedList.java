@@ -111,12 +111,14 @@ public class MyLinkedList{
   }
 
   public Integer set(int index,Integer value) {
+    Node store = new Node(null, null, null);
     if (index < 0 || index >= size()) {
       throw new IndexOutOfBoundsException(); //if the index is out of range
     }
     else {
-      Integer hold = nthNode(index).getData();
-      nthNode(index).setData(value); //Replaces the element at the specified position in this list with the specified element
+      store = nthNode(index);
+      Integer hold = store.getData();
+      store.setData(value); //Replaces the element at the specified position in this list with the specified element
       return hold; //the element previously at the specified position
     }
   }
