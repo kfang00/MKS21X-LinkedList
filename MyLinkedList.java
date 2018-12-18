@@ -154,6 +154,7 @@ public class MyLinkedList{
   public void add(int index,Integer value) {
     Node add = new Node(null, null, null);
     add.setData(value);
+    Node store = new Node(null, null, null);
     if (index < 0 || index > size()) {
       throw new IndexOutOfBoundsException(); //if the index is out of range
     }
@@ -164,9 +165,11 @@ public class MyLinkedList{
         start = add;
       }
       else {
-        nthNode(index).setPrev(add);
-        add.setNext(nthNode(index));
-        nthNode(index - 1).setNext(add); //Inserts the specified element at the specified position in this list
+        store = nthNode(index);
+	store.prev().setNext(add);
+	add.setPrev(store.prev());
+        store.setPrev(add);
+        add.setNext(store); //Inserts the specified element at the specified position in this list
       }
       length = length + 1;
     }
